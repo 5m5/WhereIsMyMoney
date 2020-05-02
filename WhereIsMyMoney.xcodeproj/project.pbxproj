@@ -14,7 +14,26 @@
 		74711EE6245C4D070083E0D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74711EE4245C4D070083E0D1 /* LaunchScreen.storyboard */; };
 		74711EF2245CB63F0083E0D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711EF1245CB63F0083E0D1 /* MainViewController.swift */; };
 		74711EF4245E06880083E0D1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711EF3245E06880083E0D1 /* CustomTableViewCell.swift */; };
+		74711F02245E18B60083E0D1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74711F01245E18B60083E0D1 /* Realm.framework */; };
+		74711F03245E18B60083E0D1 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74711F01245E18B60083E0D1 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		74711F06245E18BC0083E0D1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74711F05245E18BC0083E0D1 /* RealmSwift.framework */; };
+		74711F07245E18BC0083E0D1 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74711F05245E18BC0083E0D1 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		74711F04245E18B70083E0D1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				74711F07245E18BC0083E0D1 /* RealmSwift.framework in Embed Frameworks */,
+				74711F03245E18B60083E0D1 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		74711ED6245C4D020083E0D1 /* WhereIsMyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereIsMyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +45,8 @@
 		74711EE7245C4D070083E0D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74711EF1245CB63F0083E0D1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		74711EF3245E06880083E0D1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		74711F01245E18B60083E0D1 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		74711F05245E18BC0083E0D1 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74711F06245E18BC0083E0D1 /* RealmSwift.framework in Frameworks */,
+				74711F02245E18B60083E0D1 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +67,7 @@
 			children = (
 				74711ED8245C4D020083E0D1 /* WhereIsMyMoney */,
 				74711ED7245C4D020083E0D1 /* Products */,
+				74711F00245E18B60083E0D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +94,15 @@
 			path = WhereIsMyMoney;
 			sourceTree = "<group>";
 		};
+		74711F00245E18B60083E0D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74711F05245E18BC0083E0D1 /* RealmSwift.framework */,
+				74711F01245E18B60083E0D1 /* Realm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +113,8 @@
 				74711ED2245C4D020083E0D1 /* Sources */,
 				74711ED3245C4D020083E0D1 /* Frameworks */,
 				74711ED4245C4D020083E0D1 /* Resources */,
+				74711F04245E18B70083E0D1 /* Embed Frameworks */,
+				74711F08245E18DB0083E0D1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -136,6 +171,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		74711F08245E18DB0083E0D1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		74711ED2245C4D020083E0D1 /* Sources */ = {
@@ -290,6 +347,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WhereIsMyMoney/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -307,6 +368,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WhereIsMyMoney/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
