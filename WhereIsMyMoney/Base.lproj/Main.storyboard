@@ -9,7 +9,6 @@
         <!--Статистика-->
         <scene sceneID="HLF-uu-b5L">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4BQ-qa-a3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="RIV-4M-dED" customClass="MainViewController" customModule="WhereIsMyMoney" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IRl-OZ-6sb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -71,12 +70,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Статистика" id="MQh-7i-DZ8">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="Mvc-0g-EHd"/>
-                            <barButtonItem image="bill" id="54L-cr-YkC"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mvc-0g-EHd"/>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4BQ-qa-a3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1963.7681159420292" y="129.91071428571428"/>
         </scene>
@@ -105,6 +102,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="anP-8M-WX0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8yf-aa-3R9">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -117,7 +115,4 @@
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bill" width="24" height="24"/>
-    </resources>
 </document>

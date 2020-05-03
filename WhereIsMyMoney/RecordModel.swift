@@ -9,43 +9,49 @@
 import Foundation
 import RealmSwift
 
-@objc enum RecordType: UInt8 {
+@objc enum CategoryType: Int, RealmEnum {
     case both
     case income
     case expense
 }
 
-class Category: Object {
+final class Category: Object {
     @objc dynamic var name = ""
-    @objc dynamic var iconData: Data?
-    @objc dynamic var type: RecordType = .both
+    let type = RealmOptional<CategoryType>()
     
-    convenience init(name: String, iconData: Data?, type: RecordType) {
+    // MARK: - Initializers
+    convenience init(name: String, type: CategoryType) {
         self.init()
         self.name = name
-        self.iconData = iconData
-        self.type = type
+        self.type.value = type
     }
     
 }
 
-class Record: Object {
+final class Record: Object {
     @objc dynamic var total = 0.0
-    @objc dynamic var weight = 0.0
+    @objc dynamic var isIncomeType = false
+    let weight = RealmOptional<Double>()
+    let count = RealmOptional<Double>()
     @objc dynamic var commentary: String?
     @objc dynamic var imageData: Data?
     @objc dynamic var date = Date()
     @objc dynamic var selectedCategory: Category!
     
+    // MARK: - Initializers
     convenience init(total: Double,
-                     weight: Double,
+                     isIncomeType: Bool,
+                     weight: Double?,
+                     count: Double?,
                      commentary: String?,
                      imageData: Data?,
                      date: Date,
                      selectedCategory: Category) {
         self.init()
         self.total = total
-        self.weight = weight
+        self.isIncomeType = isIncomeType
+        self.weight.value = weight
+        self.count.value = count
         self.imageData = imageData
         self.date = date
         self.selectedCategory = selectedCategory

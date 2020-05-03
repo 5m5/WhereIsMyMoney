@@ -19,6 +19,7 @@
 		74711F06245E18BC0083E0D1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74711F05245E18BC0083E0D1 /* RealmSwift.framework */; };
 		74711F07245E18BC0083E0D1 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74711F05245E18BC0083E0D1 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74711F14245EF1F80083E0D1 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F13245EF1F80083E0D1 /* RecordModel.swift */; };
+		74711F16245F06BA0083E0D1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F15245F06BA0083E0D1 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,7 @@
 		74711F01245E18B60083E0D1 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		74711F05245E18BC0083E0D1 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		74711F13245EF1F80083E0D1 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
+		74711F15245F06BA0083E0D1 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				74711ED9245C4D020083E0D1 /* AppDelegate.swift */,
+				74711F15245F06BA0083E0D1 /* StorageManager.swift */,
 				74711EDB245C4D020083E0D1 /* SceneDelegate.swift */,
 				74711EF1245CB63F0083E0D1 /* MainViewController.swift */,
 				74711EDF245C4D020083E0D1 /* Main.storyboard */,
@@ -205,6 +208,7 @@
 				74711EDA245C4D020083E0D1 /* AppDelegate.swift in Sources */,
 				74711EDC245C4D020083E0D1 /* SceneDelegate.swift in Sources */,
 				74711EF4245E06880083E0D1 /* CustomTableViewCell.swift in Sources */,
+				74711F16245F06BA0083E0D1 /* StorageManager.swift in Sources */,
 				74711F14245EF1F80083E0D1 /* RecordModel.swift in Sources */,
 				74711EF2245CB63F0083E0D1 /* MainViewController.swift in Sources */,
 			);
