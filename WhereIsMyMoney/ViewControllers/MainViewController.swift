@@ -12,7 +12,8 @@ import RealmSwift
 class MainViewController: UITableViewController {
 
     // MARK: - Private Properties
-    private var records = realm.objects(Record.self)
+    private var records = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: false)
+    var segmentedControl: UISegmentedControl!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -36,13 +37,17 @@ class MainViewController: UITableViewController {
         let record = records[indexPath.row]
         
         cell.nameLabel.text = record.name ?? record.selectedCategory.name
-        cell.totalLabel.text = String(record.total)
+        
+        cell.totalLabel.text = String(format: "%.2f", record.total) + "₽"
+        cell.totalLabel.textColor = record.total >= 0 ? #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1) : .red
+        
+        cell.dateLabel.text = record.date.toString()
         
         cell.massOrCountLabel.text = {
             if let weight = record.weight.value {
-                return String(weight)
+                return String(weight) + " кг"
             } else if let count = record.count.value {
-                return String(count)
+                return String(count) + " шт."
             }
             return nil
         }()
@@ -51,17 +56,33 @@ class MainViewController: UITableViewController {
     }
     
     // MARK: - Private Methods
-    func setSegmentedControl() {
-        let titles = ["Все", "Доходы", "Расходы"]
-         let segmentControl = UISegmentedControl(items: titles)
+    private func setSegmentedControl() {
+        let titles = ["Все", "Расходы", "Доходы"]
+         segmentedControl = UISegmentedControl(items: titles)
          for index in 0...titles.count - 1 {
-             segmentControl.setWidth(80, forSegmentAt: index)
+             segmentedControl.setWidth(80, forSegmentAt: index)
          }
-         segmentControl.sizeToFit()
-         //segmentControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
-         segmentControl.selectedSegmentIndex = 0
-         segmentControl.sendActions(for: .valueChanged)
-         navigationItem.titleView = segmentControl
+         segmentedControl.sizeToFit()
+         segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
+         segmentedControl.selectedSegmentIndex = 0
+         segmentedControl.sendActions(for: .valueChanged)
+         navigationItem.titleView = segmentedControl
+    }
+    
+    @objc private func segmentChanged() {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            records = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: false)
+            tableView.reloadData()
+        case 1:
+            records = realm.objects(Record.self).filter("isIncomeType == %@", false).sorted(byKeyPath: "date", ascending: false)
+            tableView.reloadData()
+        case 2:
+            records = realm.objects(Record.self).filter("isIncomeType == %@", true).sorted(byKeyPath: "date", ascending: false)
+            tableView.reloadData()
+        default:
+            break
+        }
     }
 
 }

@@ -11,10 +11,10 @@ import UIKit
 final class CustomTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlets
-    @IBOutlet var recordImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet var massOrCountLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
     
     // MARK: - Public Properties
     static let reuseIdentifier = "StatisticsCell"

@@ -29,6 +29,11 @@ final class NewRecordViewController: UITableViewController {
         addDoneButtonOnKeyboard()
         total.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
     }
+    
+    // MARK: - IBActions
+    @IBAction func canceButtonPressed(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }
 
 // MARK: Text field delegate
