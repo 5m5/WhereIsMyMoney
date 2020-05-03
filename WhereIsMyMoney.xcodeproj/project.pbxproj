@@ -22,6 +22,7 @@
 		74711F16245F06BA0083E0D1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F15245F06BA0083E0D1 /* StorageManager.swift */; };
 		74711F18245F479D0083E0D1 /* NewRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F17245F479C0083E0D1 /* NewRecordViewController.swift */; };
 		74711F1A245F48E40083E0D1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F19245F48E40083E0D1 /* CategoryViewController.swift */; };
+		74711F23245F60420083E0D1 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F22245F60420083E0D1 /* RealmController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,7 @@
 		74711F15245F06BA0083E0D1 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		74711F17245F479C0083E0D1 /* NewRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecordViewController.swift; sourceTree = "<group>"; };
 		74711F19245F48E40083E0D1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		74711F22245F60420083E0D1 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				74711F1B245F5AA50083E0D1 /* Startup */,
-				74711F1D245F5AFF0083E0D1 /* Helpers */,
 				74711F21245F5D1E0083E0D1 /* ViewControllers */,
 				74711F20245F5CEA0083E0D1 /* IBuilder */,
+				74711F1D245F5AFF0083E0D1 /* Helpers */,
 				74711F1C245F5AC60083E0D1 /* Models */,
 				74711F1E245F5B160083E0D1 /* Resources */,
 				74711F1F245F5B6B0083E0D1 /* Supports */,
@@ -146,6 +148,7 @@
 		74711F1F245F5B6B0083E0D1 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				74711F22245F60420083E0D1 /* RealmController.swift */,
 				74711EE7245C4D070083E0D1 /* Info.plist */,
 			);
 			path = Supports;
@@ -273,6 +276,7 @@
 				74711F16245F06BA0083E0D1 /* StorageManager.swift in Sources */,
 				74711F1A245F48E40083E0D1 /* CategoryViewController.swift in Sources */,
 				74711F14245EF1F80083E0D1 /* RecordModel.swift in Sources */,
+				74711F23245F60420083E0D1 /* RealmController.swift in Sources */,
 				74711EF2245CB63F0083E0D1 /* MainViewController.swift in Sources */,
 				74711F18245F479D0083E0D1 /* NewRecordViewController.swift in Sources */,
 			);
