@@ -29,25 +29,28 @@ final class Category: Object {
 }
 
 final class Record: Object {
+    @objc dynamic var name: String?
     @objc dynamic var total = 0.0
     @objc dynamic var isIncomeType = false
     let weight = RealmOptional<Double>()
-    let count = RealmOptional<Double>()
+    let count = RealmOptional<Int>()
     @objc dynamic var commentary: String?
     @objc dynamic var imageData: Data?
     @objc dynamic var date = Date()
     @objc dynamic var selectedCategory: Category!
     
     // MARK: - Initializers
-    convenience init(total: Double,
+    convenience init(name: String? = nil,
+                     total: Double,
                      isIncomeType: Bool,
-                     weight: Double?,
-                     count: Double?,
-                     commentary: String?,
-                     imageData: Data?,
+                     weight: Double? = nil,
+                     count: Int? = nil,
+                     commentary: String? = nil,
+                     imageData: Data? = nil,
                      date: Date,
                      selectedCategory: Category) {
         self.init()
+        self.name = name
         self.total = total
         self.isIncomeType = isIncomeType
         self.weight.value = weight

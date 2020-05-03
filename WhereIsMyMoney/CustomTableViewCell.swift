@@ -9,16 +9,14 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
+    // MARK: - IBOutlets
+    @IBOutlet var recordImage: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var totalLabel: UILabel!
+    @IBOutlet var massOrCountLabel: UILabel!
+    
+    // MARK: - Public Properties
+    static let reuseIdentifier = "StatisticsCell"
 
 }

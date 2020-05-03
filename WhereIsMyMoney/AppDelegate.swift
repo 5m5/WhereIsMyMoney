@@ -7,13 +7,27 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let schemaVersion: UInt64 = 2
+        
+        let config = Realm.Configuration(
+            schemaVersion: schemaVersion,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < schemaVersion) {
+
+                }
+        })
+        
+        Realm.Configuration.defaultConfiguration = config
+        
         //storageManager.setDefaultCategories()
+        //storageManager.setDefaultRecords()
 
         return true
     }

@@ -50,6 +50,19 @@ final class StorageManager {
         addCategories(categories)
     }
     
+    func setDefaultRecords() {
+        let categories = realm.objects(Category.self)
+        
+        let record = Record(total: 1900,
+                            isIncomeType: true,
+                            count: 11,
+                            commentary: "Производство Германия",
+                            date: Date(),
+                            selectedCategory: categories.first!)
+        
+        addRecords([record])
+    }
+    
     func addCategories(_ categories: [Category]) {
         DispatchQueue(label: "background").async {
             autoreleasepool {
@@ -57,6 +70,12 @@ final class StorageManager {
                     realm.add(categories)
                 }
             }
+        }
+    }
+    
+    func addRecords(_ records: [Record]) {
+        try! realm.write {
+            realm.add(records)
         }
     }
     

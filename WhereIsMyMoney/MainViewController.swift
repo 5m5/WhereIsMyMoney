@@ -11,20 +11,45 @@ import RealmSwift
 
 class MainViewController: UITableViewController {
 
+    // MARK: - Private Properties
+    private var records = realm.objects(Record.self)
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setSegmentedControl()
     }
 
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+    override func numberOfSections(in tableView: UITableView) -> Int { 1 }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        records.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: CustomTableViewCell.reuseIdentifier,
+            for: indexPath
+            ) as! CustomTableViewCell
+        
+        let record = records[indexPath.row]
+        
+        print(records.count)
+        
+        cell.nameLabel.text = record.name ?? record.selectedCategory.name
+        cell.totalLabel.text = String(record.total)
+        
+        cell.massOrCountLabel.text = {
+            if let weight = record.weight.value {
+                return String(weight)
+            } else if let count = record.count.value {
+                return String(count)
+            }
+            return nil
+        }()
+
+        return cell
     }
     
     // MARK: - Private Methods
