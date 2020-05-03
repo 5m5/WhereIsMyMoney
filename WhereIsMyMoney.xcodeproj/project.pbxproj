@@ -90,18 +90,13 @@
 		74711ED8245C4D020083E0D1 /* WhereIsMyMoney */ = {
 			isa = PBXGroup;
 			children = (
-				74711ED9245C4D020083E0D1 /* AppDelegate.swift */,
-				74711F15245F06BA0083E0D1 /* StorageManager.swift */,
-				74711EDB245C4D020083E0D1 /* SceneDelegate.swift */,
-				74711EF1245CB63F0083E0D1 /* MainViewController.swift */,
-				74711EDF245C4D020083E0D1 /* Main.storyboard */,
-				74711F17245F479C0083E0D1 /* NewRecordViewController.swift */,
-				74711F19245F48E40083E0D1 /* CategoryViewController.swift */,
-				74711EF3245E06880083E0D1 /* CustomTableViewCell.swift */,
-				74711F13245EF1F80083E0D1 /* RecordModel.swift */,
-				74711EE2245C4D070083E0D1 /* Assets.xcassets */,
-				74711EE4245C4D070083E0D1 /* LaunchScreen.storyboard */,
-				74711EE7245C4D070083E0D1 /* Info.plist */,
+				74711F1B245F5AA50083E0D1 /* Startup */,
+				74711F1D245F5AFF0083E0D1 /* Helpers */,
+				74711F21245F5D1E0083E0D1 /* ViewControllers */,
+				74711F20245F5CEA0083E0D1 /* IBuilder */,
+				74711F1C245F5AC60083E0D1 /* Models */,
+				74711F1E245F5B160083E0D1 /* Resources */,
+				74711F1F245F5B6B0083E0D1 /* Supports */,
 			);
 			path = WhereIsMyMoney;
 			sourceTree = "<group>";
@@ -113,6 +108,67 @@
 				74711F01245E18B60083E0D1 /* Realm.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74711F1B245F5AA50083E0D1 /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				74711ED9245C4D020083E0D1 /* AppDelegate.swift */,
+				74711EDB245C4D020083E0D1 /* SceneDelegate.swift */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		74711F1C245F5AC60083E0D1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				74711F13245EF1F80083E0D1 /* RecordModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		74711F1D245F5AFF0083E0D1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				74711F15245F06BA0083E0D1 /* StorageManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		74711F1E245F5B160083E0D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				74711EE2245C4D070083E0D1 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		74711F1F245F5B6B0083E0D1 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				74711EE7245C4D070083E0D1 /* Info.plist */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		74711F20245F5CEA0083E0D1 /* IBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				74711EDF245C4D020083E0D1 /* Main.storyboard */,
+				74711EE4245C4D070083E0D1 /* LaunchScreen.storyboard */,
+			);
+			path = IBuilder;
+			sourceTree = "<group>";
+		};
+		74711F21245F5D1E0083E0D1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				74711EF1245CB63F0083E0D1 /* MainViewController.swift */,
+				74711F17245F479C0083E0D1 /* NewRecordViewController.swift */,
+				74711F19245F48E40083E0D1 /* CategoryViewController.swift */,
+				74711EF3245E06880083E0D1 /* CustomTableViewCell.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,7 +423,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = WhereIsMyMoney/Info.plist;
+				INFOPLIST_FILE = WhereIsMyMoney/Supports/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,7 +444,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = WhereIsMyMoney/Info.plist;
+				INFOPLIST_FILE = WhereIsMyMoney/Supports/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
