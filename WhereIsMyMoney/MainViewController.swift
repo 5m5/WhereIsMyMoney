@@ -35,8 +35,6 @@ class MainViewController: UITableViewController {
         
         let record = records[indexPath.row]
         
-        print(records.count)
-        
         cell.nameLabel.text = record.name ?? record.selectedCategory.name
         cell.totalLabel.text = String(record.total)
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+final class CustomTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlets
     @IBOutlet var recordImage: UIImageView!

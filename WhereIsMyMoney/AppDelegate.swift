@@ -26,8 +26,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Realm.Configuration.defaultConfiguration = config
         
-        //storageManager.setDefaultCategories()
-        //storageManager.setDefaultRecords()
+//        storageManager.setDefaultCategories()
+//        storageManager.setDefaultRecords()
 
         return true
     }

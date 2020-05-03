@@ -20,6 +20,8 @@
 		74711F07245E18BC0083E0D1 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74711F05245E18BC0083E0D1 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74711F14245EF1F80083E0D1 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F13245EF1F80083E0D1 /* RecordModel.swift */; };
 		74711F16245F06BA0083E0D1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F15245F06BA0083E0D1 /* StorageManager.swift */; };
+		74711F18245F479D0083E0D1 /* NewRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F17245F479C0083E0D1 /* NewRecordViewController.swift */; };
+		74711F1A245F48E40083E0D1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F19245F48E40083E0D1 /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +53,8 @@
 		74711F05245E18BC0083E0D1 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		74711F13245EF1F80083E0D1 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
 		74711F15245F06BA0083E0D1 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		74711F17245F479C0083E0D1 /* NewRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecordViewController.swift; sourceTree = "<group>"; };
+		74711F19245F48E40083E0D1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 				74711EDB245C4D020083E0D1 /* SceneDelegate.swift */,
 				74711EF1245CB63F0083E0D1 /* MainViewController.swift */,
 				74711EDF245C4D020083E0D1 /* Main.storyboard */,
+				74711F17245F479C0083E0D1 /* NewRecordViewController.swift */,
+				74711F19245F48E40083E0D1 /* CategoryViewController.swift */,
 				74711EF3245E06880083E0D1 /* CustomTableViewCell.swift */,
 				74711F13245EF1F80083E0D1 /* RecordModel.swift */,
 				74711EE2245C4D070083E0D1 /* Assets.xcassets */,
@@ -209,8 +215,10 @@
 				74711EDC245C4D020083E0D1 /* SceneDelegate.swift in Sources */,
 				74711EF4245E06880083E0D1 /* CustomTableViewCell.swift in Sources */,
 				74711F16245F06BA0083E0D1 /* StorageManager.swift in Sources */,
+				74711F1A245F48E40083E0D1 /* CategoryViewController.swift in Sources */,
 				74711F14245EF1F80083E0D1 /* RecordModel.swift in Sources */,
 				74711EF2245CB63F0083E0D1 /* MainViewController.swift in Sources */,
+				74711F18245F479D0083E0D1 /* NewRecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

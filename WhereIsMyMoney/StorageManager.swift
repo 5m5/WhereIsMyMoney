@@ -64,13 +64,16 @@ final class StorageManager {
     }
     
     func addCategories(_ categories: [Category]) {
-        DispatchQueue(label: "background").async {
-            autoreleasepool {
-                try! realm.write {
-                    realm.add(categories)
-                }
-            }
+        try! realm.write {
+            realm.add(categories)
         }
+//        DispatchQueue(label: "background").async {
+//            autoreleasepool {
+//                try! realm.write {
+//                    realm.add(categories)
+//                }
+//            }
+//        }
     }
     
     func addRecords(_ records: [Record]) {
