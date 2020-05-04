@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class NewRecordViewController: UITableViewController {
 
+    // MARK: - Public Properties
+    var selectedCategory: Category! {
+        didSet { categoryName.text = selectedCategory.name }
+    }
+    
     // MARK: - IBOutlets
     @IBOutlet var saveButton: UIBarButtonItem!
+    @IBOutlet var recordImage: UIImageView!
     @IBOutlet var recordTypeSegmentedControl: UISegmentedControl!
     @IBOutlet var categoryName: UILabel!
     @IBOutlet var recordName: UITextField!
-    @IBOutlet var total: UITextField!
-    @IBOutlet var weight: UITextField!
-    @IBOutlet var count: UITextField!
+    @IBOutlet var totalTextField: UITextField!
+    @IBOutlet var weightTextField: UITextField!
+    @IBOutlet var countTextField: UITextField!
+    @IBOutlet var commentaryTextField: UITextField!
     @IBOutlet var recordDatePicker: UIDatePicker!
     
     // MARK: - Lifecycle
@@ -27,7 +35,62 @@ final class NewRecordViewController: UITableViewController {
         
         setTextFieldsDelegates()
         addDoneButtonOnKeyboard()
-        total.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
+        totalTextField.addTarget(self,
+                                 action: #selector(textFieldDidChanged),
+                                 for: .editingChanged)
+        
+        recordTypeSegmentedControl.addTarget(self,
+                                             action: #selector(segmentedControlValueChanged),
+                                             for: .valueChanged)
+        if selectedCategory == nil {
+            segmentedControlValueChanged()
+        }
+    }
+    
+    // MARK: Table view delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            addPhoto()
+        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    // MARK: - Public Methods
+    func saveRecord() {
+        guard let totalString = totalTextField.text, let total = Double(totalString)
+            else { return }
+        
+        let newRecord = Record(
+            name: recordName.text,
+            total: total,
+            isIncomeType: recordTypeSegmentedControl.selectedSegmentIndex == 1,
+            weight: Double(weightTextField.text ?? ""),
+            count: Int(countTextField.text ?? ""),
+            commentary: commentaryTextField.text,
+            imageData: nil,
+            date: recordDatePicker.date,
+            selectedCategory: selectedCategory)
+        
+        storageManager.addRecords([newRecord])
+    }
+    
+    // MARK: - Private Methods
+    @objc private func segmentedControlValueChanged() {
+        var category: Category?
+        
+        switch recordTypeSegmentedControl.selectedSegmentIndex {
+        case 0:
+            category = realm.objects(Category.self).filter("type == %@",
+                                                           CategoryType.expense.rawValue).first
+        case 1:
+            category = realm.objects(Category.self).filter("type == %@",
+                                                           CategoryType.income.rawValue).first
+        default:
+            break
+        }
+        
+        selectedCategory = category
     }
     
     // MARK: - IBActions
@@ -45,36 +108,104 @@ extension NewRecordViewController: UITextFieldDelegate {
     }
     
     @objc private func textFieldDidChanged() {
-        saveButton.isEnabled = total.text?.isEmpty == false
+        saveButton.isEnabled = totalTextField.text?.isEmpty == false
     }
     
     private func setTextFieldsDelegates() {
         recordName.delegate = self
-        total.delegate = self
-        weight.delegate = self
-        count.delegate = self
+        totalTextField.delegate = self
+        weightTextField.delegate = self
+        countTextField.delegate = self
     }
     
     private func addDoneButtonOnKeyboard(){
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        let frame = CGRect(x: 0,
+                           y: 0,
+                           width: UIScreen.main.bounds.width,
+                           height: 50)
+        let doneToolbar: UIToolbar = UIToolbar(frame: frame)
         doneToolbar.barStyle = .default
 
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .done, target: self, action: #selector(doneButtonAction))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                        target: nil,
+                                        action: nil)
+        
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Сохранить",
+                                                    style: .done,
+                                                    target: self,
+                                                    action: #selector(doneButtonAction))
 
         let items = [flexSpace, done]
         doneToolbar.items = items
         doneToolbar.sizeToFit()
 
-        total.inputAccessoryView = doneToolbar
-        weight.inputAccessoryView = doneToolbar
-        count.inputAccessoryView = doneToolbar
+        totalTextField.inputAccessoryView = doneToolbar
+        weightTextField.inputAccessoryView = doneToolbar
+        countTextField.inputAccessoryView = doneToolbar
     }
 
     @objc private func doneButtonAction(sender: UITextField) {
-        total.resignFirstResponder()
-        weight.resignFirstResponder()
-        count.resignFirstResponder()
+        totalTextField.resignFirstResponder()
+        weightTextField.resignFirstResponder()
+        countTextField.resignFirstResponder()
     }
     
+}
+
+// MARK: Navigation
+extension NewRecordViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SelectCategory" {
+            let categoryVC = segue.destination as! CategoryViewController
+            categoryVC.categoryType = CategoryType(rawValue: recordTypeSegmentedControl.selectedSegmentIndex)
+            categoryVC.selectedCategory = selectedCategory
+        }
+    }
+    
+    @IBAction func unwindFromCategoryVC(_ sender: UIStoryboardSegue) { }
+    
+}
+
+//MARK: Work with image
+extension NewRecordViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    private func chooseImagePicker(source: UIImagePickerController.SourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = source
+            present(imagePicker, animated: true)
+        }
+    }
+    
+    private func addPhoto() {
+        let cameraIcon = UIImage(named: "camera")
+        let photoIcon = UIImage(named: "photoLibrary")
+        
+        let actionSheet = UIAlertController(title: nil,
+                                            message: nil,
+                                            preferredStyle: .actionSheet)
+        
+        let camera = UIAlertAction(title: "Камера", style: .default) { _ in
+            self.chooseImagePicker(source: .camera)
+        }
+        
+        camera.setValue(cameraIcon, forKey: "image")
+        camera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        
+        let photo = UIAlertAction(title: "Библиотека", style: .default) { _ in
+            self.chooseImagePicker(source: .photoLibrary)
+        }
+        
+        photo.setValue(photoIcon, forKey: "image")
+        photo.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        actionSheet.addAction(camera)
+        actionSheet.addAction(photo)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true)
+    }
 }

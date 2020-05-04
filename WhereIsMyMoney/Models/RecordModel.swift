@@ -10,9 +10,9 @@ import Foundation
 import RealmSwift
 
 @objc enum CategoryType: Int, RealmEnum {
-    case both
-    case income
     case expense
+    case income
+    case both
 }
 
 final class Category: Object {
@@ -51,7 +51,7 @@ final class Record: Object {
                      selectedCategory: Category) {
         self.init()
         self.name = name
-        self.total = total
+        self.total = isIncomeType ? abs(total) : -abs(total)
         self.isIncomeType = isIncomeType
         self.weight.value = weight
         self.count.value = count

@@ -24,6 +24,7 @@
 		74711F1A245F48E40083E0D1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F19245F48E40083E0D1 /* CategoryViewController.swift */; };
 		74711F23245F60420083E0D1 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F22245F60420083E0D1 /* RealmController.swift */; };
 		74711F29245F6C320083E0D1 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F28245F6C320083E0D1 /* Date+Format.swift */; };
+		74711F2B246034450083E0D1 /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F2A246034450083E0D1 /* CategoryViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +60,7 @@
 		74711F19245F48E40083E0D1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		74711F22245F60420083E0D1 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
 		74711F28245F6C320083E0D1 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		74711F2A246034450083E0D1 /* CategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryViewCell.swift; path = WhereIsMyMoney/ViewControllers/CategoryViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				74711EF1245CB63F0083E0D1 /* MainViewController.swift */,
 				74711F17245F479C0083E0D1 /* NewRecordViewController.swift */,
 				74711F19245F48E40083E0D1 /* CategoryViewController.swift */,
+				74711F2A246034450083E0D1 /* CategoryViewCell.swift */,
 				74711EF3245E06880083E0D1 /* CustomTableViewCell.swift */,
 			);
 			path = ViewControllers;
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74711F2B246034450083E0D1 /* CategoryViewCell.swift in Sources */,
 				74711EDA245C4D020083E0D1 /* AppDelegate.swift in Sources */,
 				74711EDC245C4D020083E0D1 /* SceneDelegate.swift in Sources */,
 				74711EF4245E06880083E0D1 /* CustomTableViewCell.swift in Sources */,

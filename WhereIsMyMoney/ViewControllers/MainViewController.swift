@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import RealmSwift
 
-class MainViewController: UITableViewController {
+final class MainViewController: UITableViewController {
 
     // MARK: - Private Properties
     private var records = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: false)
@@ -53,6 +52,14 @@ class MainViewController: UITableViewController {
         }()
 
         return cell
+    }
+    
+    // MARK: - Navigation
+    @IBAction func unwindFromNewRecordVC(_ segue: UIStoryboardSegue) {
+        guard let newRecordVC = segue.source as? NewRecordViewController else { return }
+        
+        newRecordVC.saveRecord()
+        tableView.reloadData()
     }
     
     // MARK: - Private Methods

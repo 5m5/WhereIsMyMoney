@@ -11,7 +11,7 @@ import RealmSwift
 
 struct RealmController {
     static func setSchemaVersion() {
-        let schemaVersion: UInt64 = 2
+        let schemaVersion: UInt64 = 3
         let config = Realm.Configuration(schemaVersion: schemaVersion, migrationBlock: nil)
         Realm.Configuration.defaultConfiguration = config
     }
