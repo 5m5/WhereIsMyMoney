@@ -62,6 +62,15 @@ final class MainViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            let newRecordVC = segue.destination as! NewRecordViewController
+            newRecordVC.record = records[indexPath.row]
+        }
+    }
+    
     // MARK: - Private Methods
     private func setSegmentedControl() {
         let titles = ["Все", "Расходы", "Доходы"]

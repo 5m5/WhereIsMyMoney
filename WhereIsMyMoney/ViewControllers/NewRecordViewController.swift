@@ -16,6 +16,8 @@ final class NewRecordViewController: UITableViewController {
         didSet { categoryName.text = selectedCategory.name }
     }
     
+    var record: Record?
+    
     // MARK: - IBOutlets
     @IBOutlet var saveButton: UIBarButtonItem!
     @IBOutlet var recordImage: UIImageView!
@@ -35,16 +37,9 @@ final class NewRecordViewController: UITableViewController {
         
         setTextFieldsDelegates()
         addDoneButtonOnKeyboard()
-        totalTextField.addTarget(self,
-                                 action: #selector(textFieldDidChanged),
-                                 for: .editingChanged)
+        addListeners()
         
-        recordTypeSegmentedControl.addTarget(self,
-                                             action: #selector(segmentedControlValueChanged),
-                                             for: .valueChanged)
-        if selectedCategory == nil {
-            segmentedControlValueChanged()
-        }
+        setupEditScreen()
     }
     
     // MARK: Table view delegate
@@ -75,7 +70,21 @@ final class NewRecordViewController: UITableViewController {
             selectedCategory: selectedCategory
         )
         
-        storageManager.addRecords([newRecord])
+        if let record = record {
+            try! realm.write {
+                record.name = newRecord.name
+                record.total = newRecord.total
+                record.weight.value = newRecord.weight.value
+                record.count.value = newRecord.count.value
+                record.commentary = newRecord.commentary
+                record.imageData = newRecord.imageData
+                record.date = newRecord.date
+                record.selectedCategory = newRecord.selectedCategory
+            }
+        } else {
+            storageManager.addRecords([newRecord])
+        }
+        
     }
     
     // MARK: - Private Methods
@@ -96,10 +105,61 @@ final class NewRecordViewController: UITableViewController {
         selectedCategory = category
     }
     
+    private func addListeners() {
+        totalTextField.addTarget(self,
+                                 action: #selector(textFieldDidChanged),
+                                 for: .editingChanged)
+        
+        recordTypeSegmentedControl.addTarget(self,
+                                             action: #selector(segmentedControlValueChanged),
+                                             for: .valueChanged)
+        if selectedCategory == nil {
+            segmentedControlValueChanged()
+        }
+    }
+    
+    private func setupEditScreen() {
+        guard let record = record else { return }
+        
+        setupNavigationBar()
+        
+        guard let imageData = record.imageData, let image = UIImage(data: imageData) else {
+            return
+        }
+        
+        recordImage.image = image
+        recordImage.contentMode = .scaleAspectFill
+        title = record.name ?? "Без названия"
+        recordTypeSegmentedControl.selectedSegmentIndex = record.isIncomeType ? 1 : 0
+        recordTypeSegmentedControl.isEnabled = false
+        selectedCategory = record.selectedCategory
+        recordName.text = record.name
+        totalTextField.text = String(record.total)
+        
+        if let weight = record.weight.value {
+            weightTextField.text = String(weight)
+        }
+        if let count = record.count.value {
+            countTextField.text = String(count)
+        }
+        commentaryTextField.text = record.commentary
+        recordDatePicker.date = record.date
+    }
+    
+    private func setupNavigationBar() {
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        
+        navigationItem.leftBarButtonItem = nil
+        saveButton.isEnabled = true
+    }
+    
     // MARK: - IBActions
     @IBAction func canceButtonPressed(_ sender: Any) {
         dismiss(animated: true)
     }
+    
 }
 
 // MARK: Text field delegate
@@ -121,7 +181,7 @@ extension NewRecordViewController: UITextFieldDelegate {
         countTextField.delegate = self
     }
     
-    private func addDoneButtonOnKeyboard(){
+    private func addDoneButtonOnKeyboard() {
         let frame = CGRect(x: 0,
                            y: 0,
                            width: UIScreen.main.bounds.width,
@@ -169,7 +229,7 @@ extension NewRecordViewController {
     
 }
 
-//MARK: Work with image
+// MARK: Work with image
 extension NewRecordViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private func chooseImagePicker(source: UIImagePickerController.SourceType) {
         if UIImagePickerController.isSourceTypeAvailable(source) {
