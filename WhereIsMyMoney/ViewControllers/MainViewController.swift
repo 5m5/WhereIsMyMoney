@@ -54,6 +54,14 @@ final class MainViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let record = records[indexPath.row]
+            storageManager.deleteRecords([record])
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     // MARK: - Navigation
     @IBAction func unwindFromNewRecordVC(_ segue: UIStoryboardSegue) {
         guard let newRecordVC = segue.source as? NewRecordViewController else { return }

@@ -41,4 +41,10 @@ final class StorageManager {
         }
     }
     
+    func deleteRecords(_ records: [Record]) {
+        try! realm.write {
+            realm.delete(records)
+        }
+    }
+    
 }
