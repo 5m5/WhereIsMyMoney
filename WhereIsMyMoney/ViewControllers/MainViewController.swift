@@ -42,7 +42,7 @@ final class MainViewController: UITableViewController {
         
         cell.dateLabel.text = record.date.toString()
         
-        cell.massOrCountLabel.text = {
+        cell.massAndCountLabel.text = {
             if let weight = record.weight.value {
                 return String(weight) + " кг"
             } else if let count = record.count.value {

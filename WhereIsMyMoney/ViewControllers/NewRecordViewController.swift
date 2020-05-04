@@ -61,16 +61,19 @@ final class NewRecordViewController: UITableViewController {
         guard let totalString = totalTextField.text, let total = Double(totalString)
             else { return }
         
+        let selectedSegmentIndex = recordTypeSegmentedControl.selectedSegmentIndex
+        
         let newRecord = Record(
             name: recordName.text,
             total: total,
-            isIncomeType: recordTypeSegmentedControl.selectedSegmentIndex == 1,
+            isIncomeType: selectedSegmentIndex == CategoryType.income.rawValue,
             weight: Double(weightTextField.text ?? ""),
             count: Int(countTextField.text ?? ""),
             commentary: commentaryTextField.text,
-            imageData: nil,
+            imageData: recordImage.image?.pngData(),
             date: recordDatePicker.date,
-            selectedCategory: selectedCategory)
+            selectedCategory: selectedCategory
+        )
         
         storageManager.addRecords([newRecord])
     }
@@ -178,6 +181,16 @@ extension NewRecordViewController: UIImagePickerControllerDelegate, UINavigation
         }
     }
     
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        recordImage.image = info[.editedImage] as? UIImage
+        recordImage.contentMode = .scaleAspectFill
+        recordImage.clipsToBounds = true
+        
+        dismiss(animated: true)
+    }
+    
     private func addPhoto() {
         let cameraIcon = UIImage(named: "camera")
         let photoIcon = UIImage(named: "photoLibrary")
@@ -208,4 +221,5 @@ extension NewRecordViewController: UIImagePickerControllerDelegate, UINavigation
         
         present(actionSheet, animated: true)
     }
+    
 }

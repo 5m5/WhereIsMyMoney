@@ -66,7 +66,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="8Xc-vY-Och" id="Ayd-3a-Jfo"/>
-                                    <outlet property="massOrCountLabel" destination="D0U-hQ-irM" id="pHu-8R-w7M"/>
+                                    <outlet property="massAndCountLabel" destination="D0U-hQ-irM" id="pHu-8R-w7M"/>
                                     <outlet property="nameLabel" destination="Lbw-DV-PGB" id="sFb-AS-xpg"/>
                                     <outlet property="totalLabel" destination="d8x-oL-1ny" id="CYu-rm-7px"/>
                                 </connections>
@@ -330,24 +330,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="u63-qM-xWe" customClass="CategoryViewCell" customModule="WhereIsMyMoney" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="105.66666412353516"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="107.33333587646484"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u63-qM-xWe" id="yeV-Hq-fbP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="105.66666412353516"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="107.33333587646484"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AIS-NN-LeB">
-                                            <rect key="frame" x="20" y="8" width="335" height="89.666666666666671"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AIS-NN-LeB">
+                                            <rect key="frame" x="20" y="8" width="335" height="91.333333333333329"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Название категории" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zRT-gm-zwU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="312" height="89.333333333333329"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="162.66666666666666" height="91"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UQ-Lm-GRN">
-                                                    <rect key="frame" x="322" y="0.0" width="13" height="89.333333333333329"/>
+                                                    <rect key="frame" x="320.33333333333331" y="0.0" width="14.666666666666686" height="91"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -398,11 +398,11 @@
             </objects>
             <point key="canvasLocation" x="2838" y="-101"/>
         </scene>
-        <!--Item-->
+        <!--Общее-->
         <scene sceneID="Gum-c4-Dky">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t55-ut-5nY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ous-TJ-tQU"/>
+                    <tabBarItem key="tabBarItem" title="Общее" image="general" id="ous-TJ-tQU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bPP-cW-N5a">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -438,5 +438,6 @@
     </scenes>
     <resources>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
+        <image name="general" width="25" height="25"/>
     </resources>
 </document>
