@@ -82,7 +82,7 @@ final class NewRecordViewController: UITableViewController {
                 record.selectedCategory = newRecord.selectedCategory
             }
         } else {
-            storageManager.addRecords([newRecord])
+            storageManager.saveRecords([newRecord])
         }
         
     }
@@ -129,7 +129,6 @@ final class NewRecordViewController: UITableViewController {
         
         recordImage.image = image
         recordImage.contentMode = .scaleAspectFill
-        title = record.name ?? "Без названия"
         recordTypeSegmentedControl.selectedSegmentIndex = record.isIncomeType ? 1 : 0
         recordTypeSegmentedControl.isEnabled = false
         selectedCategory = record.selectedCategory
@@ -150,7 +149,7 @@ final class NewRecordViewController: UITableViewController {
         if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
-        
+        title = record?.name ?? "Без названия"
         navigationItem.leftBarButtonItem = nil
         saveButton.isEnabled = true
     }

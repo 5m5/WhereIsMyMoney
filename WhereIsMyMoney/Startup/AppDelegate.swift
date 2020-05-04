@@ -14,9 +14,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         RealmController.setSchemaVersion()
-        
-//        storageManager.setDefaultCategories()
-//        storageManager.setDefaultRecords()
+        RealmController.initRealm()
 
         return true
     }

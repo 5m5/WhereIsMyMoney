@@ -15,4 +15,19 @@ struct RealmController {
         let config = Realm.Configuration(schemaVersion: schemaVersion, migrationBlock: nil)
         Realm.Configuration.defaultConfiguration = config
     }
+    
+    static func initRealm() {
+        guard let defaultPath = Realm.Configuration.defaultConfiguration.fileURL?.path else {
+            return
+        }
+        let path = Bundle.main.path(forResource: "default", ofType: "realm")
+        if !FileManager.default.fileExists(atPath: defaultPath), let bundledPath = path {
+            do {
+                try FileManager.default.copyItem(atPath: bundledPath, toPath: defaultPath)
+            } catch {
+                print("Error copying pre-populated Realm \(error)")
+            }
+        }
+    }
+    
 }

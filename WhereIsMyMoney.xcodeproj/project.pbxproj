@@ -25,6 +25,7 @@
 		74711F23245F60420083E0D1 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F22245F60420083E0D1 /* RealmController.swift */; };
 		74711F29245F6C320083E0D1 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F28245F6C320083E0D1 /* Date+Format.swift */; };
 		74711F2B246034450083E0D1 /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711F2A246034450083E0D1 /* CategoryViewCell.swift */; };
+		74826F222460914100D01AAE /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 74826F212460914000D01AAE /* default.realm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,7 @@
 		74711F22245F60420083E0D1 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
 		74711F28245F6C320083E0D1 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 		74711F2A246034450083E0D1 /* CategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryViewCell.swift; path = WhereIsMyMoney/ViewControllers/CategoryViewCell.swift; sourceTree = SOURCE_ROOT; };
+		74826F212460914000D01AAE /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			children = (
 				74711F22245F60420083E0D1 /* RealmController.swift */,
 				74711EE7245C4D070083E0D1 /* Info.plist */,
+				74826F212460914000D01AAE /* default.realm */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74826F222460914100D01AAE /* default.realm in Resources */,
 				74711EE6245C4D070083E0D1 /* LaunchScreen.storyboard in Resources */,
 				74711EE3245C4D070083E0D1 /* Assets.xcassets in Resources */,
 				74711EE1245C4D020083E0D1 /* Main.storyboard in Resources */,
