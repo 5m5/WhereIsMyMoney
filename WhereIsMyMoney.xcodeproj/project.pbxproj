@@ -148,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				74711EE2245C4D070083E0D1 /* Assets.xcassets */,
+				74826F212460914000D01AAE /* default.realm */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -157,7 +158,6 @@
 			children = (
 				74711F22245F60420083E0D1 /* RealmController.swift */,
 				74711EE7245C4D070083E0D1 /* Info.plist */,
-				74826F212460914000D01AAE /* default.realm */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
