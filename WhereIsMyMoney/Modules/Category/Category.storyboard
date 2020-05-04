@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fQ4-vI-PaP">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Category View Controller-->
+        <scene sceneID="Hkm-BI-LUU">
+            <objects>
+                <tableViewController id="fQ4-vI-PaP" customClass="CategoryViewController" customModule="WhereIsMyMoney" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cJj-io-mFM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="u63-qM-xWe" customClass="CategoryViewCell" customModule="WhereIsMyMoney" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="112"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u63-qM-xWe" id="yeV-Hq-fbP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AIS-NN-LeB">
+                                            <rect key="frame" x="20" y="8" width="335" height="96"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Название категории" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zRT-gm-zwU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="162.66666666666666" height="95.666666666666671"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UQ-Lm-GRN">
+                                                    <rect key="frame" x="320.33333333333331" y="0.0" width="14.666666666666686" height="95.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AIS-NN-LeB" firstAttribute="leading" secondItem="yeV-Hq-fbP" secondAttribute="leading" constant="20" id="D5W-mx-EE1"/>
+                                        <constraint firstAttribute="trailing" secondItem="AIS-NN-LeB" secondAttribute="trailing" constant="20" id="eDp-Z4-Pfc"/>
+                                        <constraint firstAttribute="bottom" secondItem="AIS-NN-LeB" secondAttribute="bottom" constant="8" id="om4-aR-9l4"/>
+                                        <constraint firstItem="AIS-NN-LeB" firstAttribute="top" secondItem="yeV-Hq-fbP" secondAttribute="top" constant="8" id="tTl-T4-ztv"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryNameLabel" destination="zRT-gm-zwU" id="GAb-zg-sCy"/>
+                                    <outlet property="checkedCategoryLabel" destination="9UQ-Lm-GRN" id="Ios-fC-Ycc"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fQ4-vI-PaP" id="KCZ-Nw-ojO"/>
+                            <outlet property="delegate" destination="fQ4-vI-PaP" id="ukG-Ml-m1x"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="AiD-Uu-FyZ" kind="unwind" identifier="BackToNewRecordVC" unwindAction="unwindFromCategoryVC:" id="Xt0-4t-Mcb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTB-Ex-sJh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="AiD-Uu-FyZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4664.8000000000002" y="-101.23152709359606"/>
+        </scene>
+    </scenes>
+</document>
