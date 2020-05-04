@@ -57,14 +57,16 @@ final class NewRecordViewController: UITableViewController {
             else { return }
         
         let selectedSegmentIndex = recordTypeSegmentedControl.selectedSegmentIndex
+        let isNameEmpty = recordName.text?.trimmingCharacters(in: .whitespaces).isEmpty
+        let isCommentaryEmpty = commentaryTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty
         
         let newRecord = Record(
-            name: recordName.text,
+            name: isNameEmpty == false ? recordName.text : nil,
             total: total,
             isIncomeType: selectedSegmentIndex == CategoryType.income.rawValue,
             weight: Double(weightTextField.text ?? ""),
             count: Int(countTextField.text ?? ""),
-            commentary: commentaryTextField.text,
+            commentary: isCommentaryEmpty == false ? commentaryTextField.text : nil,
             imageData: recordImage.image?.pngData(),
             date: recordDatePicker.date,
             selectedCategory: selectedCategory
@@ -178,6 +180,7 @@ extension NewRecordViewController: UITextFieldDelegate {
         totalTextField.delegate = self
         weightTextField.delegate = self
         countTextField.delegate = self
+        commentaryTextField.delegate = self
     }
     
     private func addDoneButtonOnKeyboard() {
