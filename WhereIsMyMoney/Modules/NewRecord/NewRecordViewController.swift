@@ -125,12 +125,11 @@ final class NewRecordViewController: UITableViewController {
         
         setupNavigationBar()
         
-        guard let imageData = record.imageData, let image = UIImage(data: imageData) else {
-            return
+        if let imageData = record.imageData, let image = UIImage(data: imageData) {
+            recordImage.image = image
+            recordImage.contentMode = .scaleAspectFill
         }
         
-        recordImage.image = image
-        recordImage.contentMode = .scaleAspectFill
         recordTypeSegmentedControl.selectedSegmentIndex = record.isIncomeType ? 1 : 0
         recordTypeSegmentedControl.isEnabled = false
         selectedCategory = record.selectedCategory
