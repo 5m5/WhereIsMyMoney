@@ -28,6 +28,7 @@
 		74826F272460B2C900D01AAE /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74826F262460B2C900D01AAE /* Category.storyboard */; };
 		74826F2A2460B3C100D01AAE /* NewRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74826F292460B3C100D01AAE /* NewRecord.storyboard */; };
 		74826F2F2460B5B000D01AAE /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74826F2E2460B5B000D01AAE /* CategoryViewCell.swift */; };
+		74826F33246BF50F00D01AAE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74826F32246BF50F00D01AAE /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 			files = (
 				74711F07245E18BC0083E0D1 /* RealmSwift.framework in Embed Frameworks */,
 				74711F03245E18B60083E0D1 /* Realm.framework in Embed Frameworks */,
+				74826F33246BF50F00D01AAE /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +69,7 @@
 		74826F262460B2C900D01AAE /* Category.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		74826F292460B3C100D01AAE /* NewRecord.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewRecord.storyboard; sourceTree = "<group>"; };
 		74826F2E2460B5B000D01AAE /* CategoryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewCell.swift; sourceTree = "<group>"; };
+		74826F32246BF50F00D01AAE /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,7 @@
 		74711F00245E18B60083E0D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74826F32246BF50F00D01AAE /* Charts.framework */,
 				74711F05245E18BC0083E0D1 /* RealmSwift.framework */,
 				74711F01245E18B60083E0D1 /* Realm.framework */,
 			);
@@ -304,6 +308,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 			);
 			outputFileListPaths = (
 			);
