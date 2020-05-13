@@ -12,7 +12,7 @@ final class MainViewController: UITableViewController {
 
     // MARK: - Private Properties
     private var records = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: false)
-    var segmentedControl: UISegmentedControl!
+    private var segmentedControl: UISegmentedControl!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

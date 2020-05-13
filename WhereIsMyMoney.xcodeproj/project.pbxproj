@@ -29,6 +29,8 @@
 		74826F2A2460B3C100D01AAE /* NewRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74826F292460B3C100D01AAE /* NewRecord.storyboard */; };
 		74826F2F2460B5B000D01AAE /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74826F2E2460B5B000D01AAE /* CategoryViewCell.swift */; };
 		74826F33246BF50F00D01AAE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74826F32246BF50F00D01AAE /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		74826F38246BF93E00D01AAE /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74826F37246BF93E00D01AAE /* StatisticsViewController.swift */; };
+		74826F3A246C006E00D01AAE /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74826F39246C006E00D01AAE /* ChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +72,8 @@
 		74826F292460B3C100D01AAE /* NewRecord.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewRecord.storyboard; sourceTree = "<group>"; };
 		74826F2E2460B5B000D01AAE /* CategoryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewCell.swift; sourceTree = "<group>"; };
 		74826F32246BF50F00D01AAE /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		74826F37246BF93E00D01AAE /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		74826F39246C006E00D01AAE /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,10 +223,20 @@
 			isa = PBXGroup;
 			children = (
 				74826F2C2460B48500D01AAE /* Main */,
+				74826F36246BF8E500D01AAE /* Statistics */,
 				74826F2B2460B44000D01AAE /* NewRecord */,
 				74826F282460B32200D01AAE /* Category */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		74826F36246BF8E500D01AAE /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				74826F37246BF93E00D01AAE /* StatisticsViewController.swift */,
+				74826F39246C006E00D01AAE /* ChartView.swift */,
+			);
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,8 +340,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				74826F2F2460B5B000D01AAE /* CategoryViewCell.swift in Sources */,
+				74826F3A246C006E00D01AAE /* ChartView.swift in Sources */,
 				74711EDA245C4D020083E0D1 /* AppDelegate.swift in Sources */,
 				74711EDC245C4D020083E0D1 /* SceneDelegate.swift in Sources */,
+				74826F38246BF93E00D01AAE /* StatisticsViewController.swift in Sources */,
 				74711EF4245E06880083E0D1 /* CustomTableViewCell.swift in Sources */,
 				74711F16245F06BA0083E0D1 /* StorageManager.swift in Sources */,
 				74711F1A245F48E40083E0D1 /* CategoryViewController.swift in Sources */,

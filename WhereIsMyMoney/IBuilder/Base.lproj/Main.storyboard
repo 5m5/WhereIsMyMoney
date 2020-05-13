@@ -3,10 +3,11 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Статистика-->
+        <!--Общее-->
         <scene sceneID="HLF-uu-b5L">
             <objects>
                 <tableViewController id="RIV-4M-dED" customClass="MainViewController" customModule="WhereIsMyMoney" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,7 +79,7 @@
                             <outlet property="delegate" destination="RIV-4M-dED" id="I21-c8-4c4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Статистика" id="MQh-7i-DZ8">
+                    <navigationItem key="navigationItem" title="Общее" id="MQh-7i-DZ8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mvc-0g-EHd">
                             <connections>
                                 <segue destination="oE5-Td-djf" kind="presentation" id="EIx-sN-ax3"/>
@@ -88,7 +89,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BQ-qa-a3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1963.7681159420292" y="129.91071428571428"/>
+            <point key="canvasLocation" x="1922" y="-93"/>
         </scene>
         <!--Общее-->
         <scene sceneID="Gum-c4-Dky">
@@ -107,7 +108,38 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g4c-LJ-0ds" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
+            <point key="canvasLocation" x="1033" y="-93"/>
+        </scene>
+        <!--Статистика-->
+        <scene sceneID="Nfo-LV-1sh">
+            <objects>
+                <viewController id="XZg-86-lnC" customClass="StatisticsViewController" customModule="WhereIsMyMoney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uLX-Wr-mew">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0A-O3-E7A" customClass="ChartView" customModule="WhereIsMyMoney" customModuleProvider="target">
+                                <rect key="frame" x="16" y="140" width="343" height="343"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5fw-ky-9cw" firstAttribute="trailing" secondItem="Q0A-O3-E7A" secondAttribute="trailing" constant="16" id="Buc-bS-Iw4"/>
+                            <constraint firstItem="Q0A-O3-E7A" firstAttribute="top" secondItem="5fw-ky-9cw" secondAttribute="top" id="UYI-VI-ioD"/>
+                            <constraint firstItem="Q0A-O3-E7A" firstAttribute="leading" secondItem="5fw-ky-9cw" secondAttribute="leading" constant="16" id="ZcB-eZ-uqg"/>
+                            <constraint firstItem="5fw-ky-9cw" firstAttribute="bottom" secondItem="Q0A-O3-E7A" secondAttribute="bottom" constant="246" id="p7c-ym-9en"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5fw-ky-9cw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Статистика" id="2vS-Or-7xo"/>
+                    <connections>
+                        <outlet property="chartView" destination="Q0A-O3-E7A" id="0M3-up-knj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ldr-Ey-42M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1920.8" y="648.76847290640399"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hU5-6U-ZBD">
@@ -121,6 +153,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="t55-ut-5nY" kind="relationship" relationship="viewControllers" id="Dn1-zo-76Y"/>
+                        <segue destination="7Uo-jg-cn6" kind="relationship" relationship="viewControllers" id="ggB-hN-WIu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Xl-Ru-cHq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -135,7 +168,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEX-va-Sjz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2817" y="385"/>
+            <point key="canvasLocation" x="2816" y="64"/>
         </scene>
         <!--UINavigationController-Tbe-CM-mB0-->
         <scene sceneID="iN2-0i-qVN">
@@ -144,6 +177,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oqx-m4-XjX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2817" y="-383"/>
+        </scene>
+        <!--Статистика-->
+        <scene sceneID="lFb-fm-28P">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Uo-jg-cn6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Статистика" id="AI1-Fm-7MZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="wxv-ux-jWy">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XZg-86-lnC" kind="relationship" relationship="rootViewController" id="EoG-TN-820"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3iF-aM-MHd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="649"/>
         </scene>
     </scenes>
     <resources>
