@@ -1,2 +1,2 @@
 github "danielgindi/Charts" "v3.5.0"
-github "realm/realm-cocoa" "v4.4.1"
+github "realm/realm-cocoa" "v5.0.0"
