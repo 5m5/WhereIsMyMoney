@@ -12,6 +12,17 @@ final class ChartView: PieChartView {
     
     // MARK: - Public Methods
     func updateChartData() {
+        drawHoleEnabled = false
+        rotationAngle = 0
+        rotationEnabled = false
+        isUserInteractionEnabled = false
+        
+        //chartDescription?.text = nil
+        usePercentValuesEnabled = true
+        legend.horizontalAlignment = .center
+        
+        drawEntryLabelsEnabled = false
+        
         let expenseTotal = realm.objects(Record.self).filter("isIncomeType == %@", false).sum(ofProperty: "total") as Double
         
         let expenseDataEntry = PieChartDataEntry(value: abs(expenseTotal))
@@ -25,13 +36,8 @@ final class ChartView: PieChartView {
         let dataEntries = [expenseDataEntry, incomeDataEntry]
         let chartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         
-        //chartDescription?.text = nil
-        usePercentValuesEnabled = true
-        legend.horizontalAlignment = .center
-        
         //Disable marks
         chartDataSet.drawValuesEnabled = false
-        drawEntryLabelsEnabled = false
         
         let chartData = PieChartData(dataSet: chartDataSet)
         chartData.setValueFormatter(formatter())

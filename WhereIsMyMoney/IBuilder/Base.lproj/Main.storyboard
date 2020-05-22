@@ -182,7 +182,7 @@
         <scene sceneID="lFb-fm-28P">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Uo-jg-cn6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Статистика" id="AI1-Fm-7MZ"/>
+                    <tabBarItem key="tabBarItem" title="Статистика" image="chart" id="AI1-Fm-7MZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="wxv-ux-jWy">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -199,6 +199,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chart" width="25" height="25"/>
         <image name="general" width="25" height="25"/>
     </resources>
 </document>
