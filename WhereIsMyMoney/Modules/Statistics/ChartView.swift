@@ -12,15 +12,16 @@ final class ChartView: PieChartView {
     
     // MARK: - Public Methods
     func updateChartData() {
-        let expenseDataEntry = PieChartDataEntry(value:
-            realm.objects(Record.self).filter("isIncomeType == %@", false).sum(ofProperty: "total")
-        )
+        let expenseTotal = realm.objects(Record.self).filter("isIncomeType == %@", false).sum(ofProperty: "total") as Double
+        
+        let expenseDataEntry = PieChartDataEntry(value: abs(expenseTotal))
         expenseDataEntry.label = "Расходы"
-        expenseDataEntry.accessibilityValue = nil
+        
         let incomeDataEntry = PieChartDataEntry(value:
             realm.objects(Record.self).filter("isIncomeType == %@", true).sum(ofProperty: "total")
         )
         incomeDataEntry.label = "Доходы"
+        
         let dataEntries = [expenseDataEntry, incomeDataEntry]
         let chartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         
