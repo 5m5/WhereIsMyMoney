@@ -12,6 +12,7 @@ final class StatisticsViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet var chartView: ChartView!
+    @IBOutlet var chartLegend: UICollectionView!
     
     // MARK: - Private Properties
     //private var records = realm.objects(Record.self)
@@ -20,6 +21,9 @@ final class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSegmentedControl()
+        
+        chartLegend.delegate = self
+        chartLegend.dataSource = self
     }
     
     // MARK: - Private Methods
@@ -37,19 +41,47 @@ final class StatisticsViewController: UIViewController {
     }
     
     @objc private func segmentChanged() {
-        var records = realm.objects(Record.self)
+        var categories = realm.objects(Category.self)
+        let colors: [UIColor] = [.systemBlue,
+                                 .systemOrange,
+                                 .systemPink,
+                                 .systemTeal,
+                                 .systemIndigo,
+                                 .systemGreen,
+                                 .systemRed,
+                                 .systemYellow]
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             chartView.updateChartData()
         case 1:
-            records = records.filter("isIncomeType == %@", false)
-            chartView.updateExpenseData(records: records)
+            categories = categories.filter("type == %@ || type = %@",
+                                               CategoryType.expense.rawValue,
+                                               CategoryType.both.rawValue)
+            chartView.update(categories: categories, colors: colors)
         case 2:
-            records = records.filter("isIncomeType == %@", true)
+            categories = categories.filter("type == %@ || type = %@",
+                                               CategoryType.income.rawValue,
+                                               CategoryType.both.rawValue)
+            chartView.update(categories: categories, colors: colors)
         default:
             break
         }
     }
  
+}
+
+extension StatisticsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = chartLegend.dequeueReusableCell(withReuseIdentifier: ChartLegendCell.reuseIdentifier,
+                                       for: indexPath)
+        
+        cell.backgroundColor = .blue
+        return cell
+    }
 }

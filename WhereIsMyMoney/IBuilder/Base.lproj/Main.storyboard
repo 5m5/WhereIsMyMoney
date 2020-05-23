@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -120,20 +121,76 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0A-O3-E7A" customClass="ChartView" customModule="WhereIsMyMoney" customModuleProvider="target">
                                 <rect key="frame" x="16" y="140" width="343" height="343"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Q0A-O3-E7A" secondAttribute="height" multiplier="1:1" id="BnL-Tt-l9j"/>
+                                </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5kE-RH-Ul6">
+                                <rect key="frame" x="16" y="491" width="343" height="238"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zn0-Gw-fWV">
+                                    <size key="itemSize" width="186" height="45"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ChartLegendCell" id="MpL-9h-Zez" customClass="ChartLegendCell" customModule="WhereIsMyMoney" customModuleProvider="target">
+                                        <rect key="frame" x="78.666666666666671" y="0.0" width="186" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ScC-Ak-OPf">
+                                            <rect key="frame" x="0.0" y="0.0" width="186" height="45"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RZa-D2-Uo9">
+                                                    <rect key="frame" x="8" y="1" width="170" height="43.333333333333336"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название категории" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="713-Mh-irb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="43.333333333333336"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kf-p5-Xun">
+                                                            <rect key="frame" x="117" y="0.0" width="53" height="43.333333333333336"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RZa-D2-Uo9" firstAttribute="centerY" secondItem="ScC-Ak-OPf" secondAttribute="centerY" id="KtD-4q-goE"/>
+                                                <constraint firstAttribute="trailing" secondItem="RZa-D2-Uo9" secondAttribute="trailing" constant="8" id="QeK-2a-7Fl"/>
+                                                <constraint firstItem="RZa-D2-Uo9" firstAttribute="leading" secondItem="ScC-Ak-OPf" secondAttribute="leading" constant="8" id="Yxj-pl-5dW"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="186" height="45"/>
+                                        <connections>
+                                            <outlet property="categoryNameLabel" destination="713-Mh-irb" id="hnN-tN-zme"/>
+                                            <outlet property="totalLabel" destination="3Kf-p5-Xun" id="N5l-pF-GHf"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="5fw-ky-9cw" firstAttribute="trailing" secondItem="Q0A-O3-E7A" secondAttribute="trailing" constant="16" id="Buc-bS-Iw4"/>
-                            <constraint firstItem="Q0A-O3-E7A" firstAttribute="top" secondItem="5fw-ky-9cw" secondAttribute="top" id="UYI-VI-ioD"/>
-                            <constraint firstItem="Q0A-O3-E7A" firstAttribute="leading" secondItem="5fw-ky-9cw" secondAttribute="leading" constant="16" id="ZcB-eZ-uqg"/>
-                            <constraint firstItem="5fw-ky-9cw" firstAttribute="bottom" secondItem="Q0A-O3-E7A" secondAttribute="bottom" constant="246" id="p7c-ym-9en"/>
+                            <constraint firstItem="5fw-ky-9cw" firstAttribute="bottom" secondItem="5kE-RH-Ul6" secondAttribute="bottom" id="4s1-HK-m78"/>
+                            <constraint firstItem="5kE-RH-Ul6" firstAttribute="leading" secondItem="5fw-ky-9cw" secondAttribute="leading" constant="16" id="BRZ-WU-ypu"/>
+                            <constraint firstItem="5fw-ky-9cw" firstAttribute="trailing" secondItem="Q0A-O3-E7A" secondAttribute="trailing" constant="16" id="PwE-U4-nAF"/>
+                            <constraint firstItem="5kE-RH-Ul6" firstAttribute="top" secondItem="Q0A-O3-E7A" secondAttribute="bottom" constant="8" id="Wlv-Kt-L2P"/>
+                            <constraint firstItem="Q0A-O3-E7A" firstAttribute="leading" secondItem="5fw-ky-9cw" secondAttribute="leading" constant="16" id="Zg1-xM-lpR"/>
+                            <constraint firstItem="5fw-ky-9cw" firstAttribute="trailing" secondItem="5kE-RH-Ul6" secondAttribute="trailing" constant="16" id="ZqC-4d-VTF"/>
+                            <constraint firstItem="Q0A-O3-E7A" firstAttribute="top" secondItem="5fw-ky-9cw" secondAttribute="top" id="aOM-if-cAC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5fw-ky-9cw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Статистика" id="2vS-Or-7xo"/>
                     <connections>
+                        <outlet property="chartLegend" destination="5kE-RH-Ul6" id="tW2-dF-Cb3"/>
                         <outlet property="chartView" destination="Q0A-O3-E7A" id="0M3-up-knj"/>
                     </connections>
                 </viewController>
