@@ -53,12 +53,12 @@ final class StatisticsViewController: UIViewController {
             categories = categories.filter("type == %@ || type = %@",
                                                CategoryType.expense.rawValue,
                                                CategoryType.both.rawValue)
-            chartView.update(categories: categories, colors: colors)
+            chartView.updateCategories(categories, colors: colors)
         case 2:
             categories = categories.filter("type == %@ || type = %@",
                                                CategoryType.income.rawValue,
                                                CategoryType.both.rawValue)
-            chartView.update(categories: categories, colors: colors)
+            chartView.updateCategories(categories, colors: colors)
         default:
             break
         }

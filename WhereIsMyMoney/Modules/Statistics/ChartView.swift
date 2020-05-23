@@ -23,30 +23,32 @@ final class ChartView: PieChartView {
     
     // MARK: - Public Methods
     func updateChartData() {
-        let expenseTotal = realm.objects(Record.self).filter("isIncomeType == %@", false).sum(ofProperty: "total") as Double
+        let records = realm.objects(Record.self)
         
-        let expenseDataEntry = PieChartDataEntry(value: abs(expenseTotal),
-                                                 label: "Расходы")
+        let expenseRecords = records.filter("isIncomeType == %@", false)
+        let expenseTotal = abs(expenseRecords.sum(ofProperty: "total") as Double)
         
-        let incomeDataEntry = PieChartDataEntry(
-            value: realm.objects(Record.self).filter("isIncomeType == %@", true).sum(ofProperty: "total"),
-            label: "Доходы"
-        )
+        let expenseDataEntry = PieChartDataEntry(value: expenseTotal,
+                                                 label: "Расходы \(expenseTotal)₽")
+        
+        let incomeRecords = records.filter("isIncomeType == %@", true)
+        let incomeTotal = incomeRecords.sum(ofProperty: "total") as Double
+        
+        let incomeDataEntry = PieChartDataEntry(value: incomeTotal,
+                                                label: "Доходы \(incomeTotal)₽")
         
         let dataEntries = [expenseDataEntry, incomeDataEntry]
         createDataEntries(dataEntries, colors: [.expense, .income])
     }
     
-    func update(categories: Results<Category>, colors: [UIColor]) {
+    func updateCategories(_ categories: Results<Category>, colors: [UIColor]) {
         var dataEntries = [PieChartDataEntry]()
         
         for category in categories {
             let total = abs(category.records.sum(ofProperty: "total") as Double)
             
-            let dataEntry = PieChartDataEntry(
-                value: abs(category.records.sum(ofProperty: "total")),
-                label: category.name
-            )
+            let dataEntry = PieChartDataEntry(value: total,
+                                              label: "\(category.name) \(total)₽")
             
             if total > 0 { dataEntries.append(dataEntry) }
         }
@@ -70,8 +72,7 @@ final class ChartView: PieChartView {
     }
     
     private func configurateChartView() {
-        legend.enabled = false
-        legend.font = UIFont(name: "AppleSDGothicNeo-Light", size: 24.0)!
+        legend.font = UIFont(name: "AppleSDGothicNeo-Light", size: 14.0)!
         legend.textColor = .label
         legend.horizontalAlignment = .center
         
