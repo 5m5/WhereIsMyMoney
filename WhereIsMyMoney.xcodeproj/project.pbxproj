@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		743179E724787D44008033C8 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743179E624787D44008033C8 /* UIColor+Custom.swift */; };
-		743179EB247993C1008033C8 /* ChartLegendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743179EA247993C1008033C8 /* ChartLegendCell.swift */; };
-		743179ED24799954008033C8 /* ChartLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743179EC24799954008033C8 /* ChartLegendView.swift */; };
 		74711EDA245C4D020083E0D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711ED9245C4D020083E0D1 /* AppDelegate.swift */; };
 		74711EDC245C4D020083E0D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711EDB245C4D020083E0D1 /* SceneDelegate.swift */; };
 		74711EE1245C4D020083E0D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74711EDF245C4D020083E0D1 /* Main.storyboard */; };
@@ -54,8 +52,6 @@
 
 /* Begin PBXFileReference section */
 		743179E624787D44008033C8 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
-		743179EA247993C1008033C8 /* ChartLegendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLegendCell.swift; sourceTree = "<group>"; };
-		743179EC24799954008033C8 /* ChartLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLegendView.swift; sourceTree = "<group>"; };
 		74711ED6245C4D020083E0D1 /* WhereIsMyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereIsMyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74711ED9245C4D020083E0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74711EDB245C4D020083E0D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -241,9 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				74826F37246BF93E00D01AAE /* StatisticsViewController.swift */,
-				743179EC24799954008033C8 /* ChartLegendView.swift */,
 				74826F39246C006E00D01AAE /* ChartView.swift */,
-				743179EA247993C1008033C8 /* ChartLegendCell.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -349,7 +343,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				74826F2F2460B5B000D01AAE /* CategoryViewCell.swift in Sources */,
-				743179EB247993C1008033C8 /* ChartLegendCell.swift in Sources */,
 				74826F3A246C006E00D01AAE /* ChartView.swift in Sources */,
 				74711EDA245C4D020083E0D1 /* AppDelegate.swift in Sources */,
 				74711EDC245C4D020083E0D1 /* SceneDelegate.swift in Sources */,
@@ -360,7 +353,6 @@
 				74711F14245EF1F80083E0D1 /* RecordModel.swift in Sources */,
 				74711F29245F6C320083E0D1 /* Date+Format.swift in Sources */,
 				743179E724787D44008033C8 /* UIColor+Custom.swift in Sources */,
-				743179ED24799954008033C8 /* ChartLegendView.swift in Sources */,
 				74711F23245F60420083E0D1 /* RealmController.swift in Sources */,
 				74711EF2245CB63F0083E0D1 /* MainViewController.swift in Sources */,
 				74711F18245F479D0083E0D1 /* NewRecordViewController.swift in Sources */,

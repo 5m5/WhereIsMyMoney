@@ -12,18 +12,13 @@ final class StatisticsViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet var chartView: ChartView!
-    @IBOutlet var chartLegend: UICollectionView!
     
     // MARK: - Private Properties
-    //private var records = realm.objects(Record.self)
     private var segmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setSegmentedControl()
-        
-        chartLegend.delegate = self
-        chartLegend.dataSource = self
     }
     
     // MARK: - Private Methods
@@ -69,19 +64,4 @@ final class StatisticsViewController: UIViewController {
         }
     }
  
-}
-
-extension StatisticsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = chartLegend.dequeueReusableCell(withReuseIdentifier: ChartLegendCell.reuseIdentifier,
-                                       for: indexPath)
-        
-        cell.backgroundColor = .blue
-        return cell
-    }
 }
