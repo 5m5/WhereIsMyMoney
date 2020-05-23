@@ -38,7 +38,7 @@ final class MainViewController: UITableViewController {
         cell.nameLabel.text = record.name ?? record.selectedCategory.name
         
         cell.totalLabel.text = String(format: "%.2f", record.total) + "₽"
-        cell.totalLabel.textColor = record.total >= 0 ? #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1) : .red
+        cell.totalLabel.textColor = record.total >= 0 ? .income : .expense
         
         cell.dateLabel.text = record.date.toString()
         

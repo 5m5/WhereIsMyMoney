@@ -18,6 +18,7 @@ import RealmSwift
 final class Category: Object {
     @objc dynamic var name = ""
     let type = RealmOptional<CategoryType>()
+    let records = LinkingObjects(fromType: Record.self, property: "selectedCategory")
     
     // MARK: - Initializers
     convenience init(name: String, type: CategoryType) {
@@ -25,7 +26,7 @@ final class Category: Object {
         self.name = name
         self.type.value = type
     }
-    
+
 }
 
 final class Record: Object {

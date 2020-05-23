@@ -14,7 +14,7 @@ final class StatisticsViewController: UIViewController {
     @IBOutlet var chartView: ChartView!
     
     // MARK: - Private Properties
-    private var records = realm.objects(Record.self)
+    //private var records = realm.objects(Record.self)
     private var segmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
@@ -37,14 +37,16 @@ final class StatisticsViewController: UIViewController {
     }
     
     @objc private func segmentChanged() {
+        var records = realm.objects(Record.self)
+        
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            records = realm.objects(Record.self)
             chartView.updateChartData()
         case 1:
-            records = realm.objects(Record.self).filter("isIncomeType == %@", false)
+            records = records.filter("isIncomeType == %@", false)
+            chartView.updateExpenseData(records: records)
         case 2:
-            records = realm.objects(Record.self).filter("isIncomeType == %@", true)
+            records = records.filter("isIncomeType == %@", true)
         default:
             break
         }

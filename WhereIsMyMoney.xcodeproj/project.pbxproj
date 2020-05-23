@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		743179E724787D44008033C8 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743179E624787D44008033C8 /* UIColor+Custom.swift */; };
 		74711EDA245C4D020083E0D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711ED9245C4D020083E0D1 /* AppDelegate.swift */; };
 		74711EDC245C4D020083E0D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74711EDB245C4D020083E0D1 /* SceneDelegate.swift */; };
 		74711EE1245C4D020083E0D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74711EDF245C4D020083E0D1 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		743179E624787D44008033C8 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
 		74711ED6245C4D020083E0D1 /* WhereIsMyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereIsMyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74711ED9245C4D020083E0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74711EDB245C4D020083E0D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				74711F28245F6C320083E0D1 /* Date+Format.swift */,
+				743179E624787D44008033C8 /* UIColor+Custom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				74711F1A245F48E40083E0D1 /* CategoryViewController.swift in Sources */,
 				74711F14245EF1F80083E0D1 /* RecordModel.swift in Sources */,
 				74711F29245F6C320083E0D1 /* Date+Format.swift in Sources */,
+				743179E724787D44008033C8 /* UIColor+Custom.swift in Sources */,
 				74711F23245F60420083E0D1 /* RealmController.swift in Sources */,
 				74711EF2245CB63F0083E0D1 /* MainViewController.swift in Sources */,
 				74711F18245F479D0083E0D1 /* NewRecordViewController.swift in Sources */,
