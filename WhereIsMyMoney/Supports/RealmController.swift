@@ -9,18 +9,34 @@
 import Foundation
 import RealmSwift
 
-struct RealmController {
-    static func setSchemaVersion() {
+final class RealmController {
+    
+    // MARK: - Public Properties
+    static let shared = RealmController()
+    
+    // MARK: - Public Methods
+    func setSchemaVersion() {
         let schemaVersion: UInt64 = 3
         let config = Realm.Configuration(schemaVersion: schemaVersion, migrationBlock: nil)
         Realm.Configuration.defaultConfiguration = config
     }
     
-    static func initRealm() {
+    // MARK: - Initializers
+    private init() {
+        initRealm()
+        
+        #if DEBUG
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
+        #endif
+    }
+    
+    // MARK: - Private Methods
+    private func initRealm() {
         guard let defaultPath = Realm.Configuration.defaultConfiguration.fileURL?.path else {
             return
         }
         let path = Bundle.main.path(forResource: "default", ofType: "realm")
+        
         if !FileManager.default.fileExists(atPath: defaultPath), let bundledPath = path {
             do {
                 try FileManager.default.copyItem(atPath: bundledPath, toPath: defaultPath)
