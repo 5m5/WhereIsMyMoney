@@ -9,7 +9,7 @@
         <!--Новая запись-->
         <scene sceneID="Pwa-0D-oYI">
             <objects>
-                <tableViewController storyboardIdentifier="NewRecordViewController" id="wi1-U2-W9m" customClass="NewRecordViewController" customModule="WhereIsMyMoney" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewRecordViewController" id="wi1-U2-W9m" customClass="NewRecordViewController" customModule="Севзаптехника" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QzO-47-eKG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,7 +166,7 @@
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Производство Германия" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CgG-ok-hlM">
                                                             <rect key="frame" x="0.0" y="83.333333333333329" width="216.66666666666666" height="20.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="20"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad" returnKeyType="done"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
