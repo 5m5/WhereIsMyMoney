@@ -52,7 +52,7 @@
 
 /* Begin PBXFileReference section */
 		743179E624787D44008033C8 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
-		74711ED6245C4D020083E0D1 /* WhereIsMyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereIsMyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74711ED6245C4D020083E0D1 /* Севзаптехника.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Севзаптехника.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74711ED9245C4D020083E0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74711EDB245C4D020083E0D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		74711EE0245C4D020083E0D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		74711ED7245C4D020083E0D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				74711ED6245C4D020083E0D1 /* WhereIsMyMoney.app */,
+				74711ED6245C4D020083E0D1 /* Севзаптехника.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 			);
 			name = WhereIsMyMoney;
 			productName = WhereIsMyMoney;
-			productReference = 74711ED6245C4D020083E0D1 /* WhereIsMyMoney.app */;
+			productReference = 74711ED6245C4D020083E0D1 /* Севзаптехника.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -510,7 +510,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.andreev.WhereIsMyMoney;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Севзаптехника";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -531,7 +531,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.andreev.WhereIsMyMoney;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Севзаптехника";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
